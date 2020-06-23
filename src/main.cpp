@@ -1,5 +1,6 @@
 #include <QGuiApplication>
-#include <QQmlApplicationEngine>
+#include <QtQml/QQmlApplicationEngine>
+//#include <QQmlApplicationEngine>
 #include <QQuickStyle>
 #ifdef Q_OS_ANDROID
 #include <QtAndroidExtras/qandroidfunctions.h>
@@ -18,6 +19,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<SaverBackend>("saver.backend",1,0,"SaverBackend");
     qmlRegisterType<QRecodeUtils>("qrecode.utils",1,0,"QRecodeUtils");
     qmlRegisterType<LicensesBackend>("qrecode.licenses",1,0,"LicensesBackend");
+    qmlRegisterSingletonType(QUrl("qrc:/qml/Components/Definitions.qml"), "Definitions", 1, 0, "Definitions");
 
     app.setOrganizationName("willelop");
     app.setApplicationName("QRecode");

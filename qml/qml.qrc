@@ -6,5 +6,6 @@
         <file>Components/AppDrawer.qml</file>
         <file>Components/DrawerItem.qml</file>
         <file>Components/Licenses.qml</file>
+        <file>Components/Definitions.qml</file>
     </qresource>
 </RCC>

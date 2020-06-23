@@ -67,7 +67,7 @@ Page {
         ComboBox {
             id: imageFormatCombo
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-            currentIndex: settings.imageFormatId
+            currentIndex: settings.value("imageFormatId",0)
 
             model: ListModel {
                 id: model
@@ -99,12 +99,12 @@ Page {
         }
         Label {
             id: darkModeLabel
-            text: qsTr("Night Mode")
+            text: qsTr("Dark Mode")
         }
         Switch {
             id: darkMode
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-            checked: applicationWindow.darkTheme
+            checked: (applicationWindow.darkTheme == 1)
             onCheckedChanged: applicationWindow.darkTheme = checked
         }
     }

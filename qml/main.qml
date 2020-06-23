@@ -8,10 +8,8 @@ import QtGraphicalEffects 1.0
 import QtQuick.Controls.Material 2.12
 import Qt.labs.settings 1.0
 import qrecode.utils 1.0
-
-
+import Definitions 1.0
 import "qrc:/qml/Components" as Components
-
 
 
 ApplicationWindow {
@@ -19,8 +17,7 @@ ApplicationWindow {
     visible: true
     width: 360
     height: 640
-    color: "#5d6377"
-    title: qsTr("QRecode")
+    title: Definitions.appTitle
     property int darkTheme: -1;
     Material.primary: Material.backgroundColor
 

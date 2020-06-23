@@ -16,8 +16,16 @@ Drawer {
         anchors.fill: parent
         RowLayout{
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-
             Layout.fillWidth: true
+            Label {
+                Layout.fillWidth: true
+                text: Definitions.appTitle
+                font.weight: Font.Bold
+                Layout.leftMargin: 15
+                font.bold: false
+                font.pointSize: 13
+                horizontalAlignment: Text.AlignLeft
+            }
             ToolButton {
                 icon.source: "qrc:/icons/arrow_back-black-18dp.svg"
                 onClicked: mainDrawer.close();
