@@ -56,17 +56,17 @@ Drawer {
     ListModel {
         id: entryModel
         ListElement {
-            name: "Settings"
+            name: qsTr("Settings")
             actionid: 1
             iconSource: "qrc:/icons/settings-24px.svg"
         }
         ListElement {
-            name: "Github"
+            name: qsTr("Github")
             iconSource: "qrc:/icons/code-24px.svg"
             actionid: 3
         }
         ListElement {
-            name: "Licenses"
+            name: qsTr("Licenses")
             iconSource: "qrc:/icons/flag-24px.svg"
             actionid: 2
         }

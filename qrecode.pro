@@ -40,10 +40,11 @@ SOURCES += \
         src/saverbackend.cpp
 
 RESOURCES += qml/qml.qrc \
-    icons/icons.qrc
+    icons/icons.qrc \
+    translations/translations.qrc
 
 TRANSLATIONS += \
-    QRecode_es_ES.ts
+    translations/QRecode_es_ES.ts
 
 HEADERS += \
     src/licensesbackend.h \
