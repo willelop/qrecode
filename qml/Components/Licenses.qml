@@ -8,13 +8,7 @@ import QtGraphicalEffects 1.0
 import QtQuick.Controls.Material 2.12
 import qrecode.licenses 1.0
 
-Page {
-    id: licenses
-    anchors.fill: parent
-
-    LicensesBackend {
-        id: licBackend;
-    }
+Component {
 
     component LicenseBlock: ColumnLayout {
         property string license_title;
@@ -31,55 +25,66 @@ Page {
             wrapMode: Label.WordWrap
             bottomPadding: 20
             font.pointSize: 10
+            color: Material.foreground
         }
     }
 
-    padding: 10
-    header: ToolBar {
-        Material.elevation: 0
-        id: toolBar
-        RowLayout {
-            id: rowLayout
-            ToolButton {
-                id: menuButton
-                text: qsTr("Back")
-                display: AbstractButton.IconOnly
-                action: closeCurrent
-                icon.source: "qrc:/icons/arrow_back-black-18dp.svg"
+    Page {
+        id: licenses
+
+        LicensesBackend {
+            id: licBackend;
+        }
+
+
+
+        padding: 10
+        header: ToolBar {
+            id: toolBar
+            RowLayout {
+                id: rowLayout
+                ToolButton {
+                    id: menuButton
+                    text: qsTr("Back")
+                    display: AbstractButton.IconOnly
+                    action: closeCurrent
+                    icon.source: "qrc:/icons/arrow_back-black-18dp.svg"
+                }
+
+                Label {
+                    id: label
+                    text: qsTr("Licenses")
+                    horizontalAlignment: Text.AlignLeft
+                    Layout.fillWidth: true
+                }
             }
+        }
 
-            Label {
-                id: label
-                text: qsTr("Licenses")
-                horizontalAlignment: Text.AlignLeft
-                Layout.fillWidth: true
+        ScrollView
+        {
+            contentWidth: licenses.availableWidth
+            anchors.fill: parent
+            ColumnLayout {
+                anchors.fill: parent
+                LicenseBlock {
+                    license_title: "QR-Code Generation Library";
+                    license_text: licBackend.qrCodeLic;
+                }
+                LicenseBlock {
+                    license_title: "Material Icons";
+                    license_text: licBackend.materialLic;
+                }
+                LicenseBlock {
+                    license_title: "QRecode";
+                    license_text: licBackend.softwareLic;
+                }
+                Item {
+                    Layout.fillHeight: true;
+                }
             }
         }
     }
 
-    ScrollView
-    {
-        contentWidth: licenses.availableWidth
-        anchors.fill: parent
-    ColumnLayout {
-        anchors.fill: parent
-        LicenseBlock {
-            license_title: "QR-Code Generation Library";
-            license_text: licBackend.qrCodeLic;
-        }
-        LicenseBlock {
-            license_title: "Material Icons";
-            license_text: licBackend.materialLic;
-        }
-        LicenseBlock {
-            license_title: "QRecode";
-            license_text: licBackend.softwareLic;
-        }
-        Item {
-            Layout.fillHeight: true;
-        }
-    }
-    }
 }
 
 

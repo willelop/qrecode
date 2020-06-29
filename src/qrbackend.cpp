@@ -72,11 +72,12 @@ void QrBackend::generateQRFromString(QString input)
     QDateTime::currentDateTime().toString("yyyy_MM_dd_hh_mm_ss");
     QString filename = QString("image_%1.%2").arg(QDateTime::currentDateTime().toString("yyyy_MM_dd_hh_mm_ss"),format);
 
-    auto path = QStandardPaths::writableLocation(QStandardPaths::TempLocation);
+    auto path = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+    qDebug() << path;
     QDir pathFolder(path);
     if (!pathFolder.exists())
     {
-        QDir().mkdir(path);
+        QDir().mkpath(path);
     }
     auto filePath= path + "/" + filename;
     qDebug() << "Save was " << image.save(filePath,0) << filePath;

@@ -6,9 +6,9 @@
 class LicensesBackend : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString qrCodeLic READ getQRCodeLicense)
-    Q_PROPERTY(QString softwareLic READ getSoftwareLicense)
-    Q_PROPERTY(QString materialLic READ getMaterialIconsLicense)
+    Q_PROPERTY(QString qrCodeLic READ getQRCodeLicense CONSTANT)
+    Q_PROPERTY(QString softwareLic READ getSoftwareLicense CONSTANT)
+    Q_PROPERTY(QString materialLic READ getMaterialIconsLicense CONSTANT)
 
 public:
     explicit LicensesBackend(QObject *parent = nullptr);

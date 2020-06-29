@@ -19,7 +19,7 @@ ApplicationWindow {
     height: 640
     title: Definitions.appTitle
     property int darkTheme: -1;
-    Material.primary: Material.backgroundColor
+   //Material.primary: Material.backgroundColor
 
     onDarkThemeChanged:
     {
@@ -52,38 +52,37 @@ ApplicationWindow {
         onTriggered: applicationDrawer.open()
     }
     Action {
+        id: openGenerator
+        icon.name: "menu"
+        onTriggered: stackView.push(generatorComponent)
+    }
+    Action {
         id: closeCurrent
         icon.name: "menu"
         onTriggered: stackView.pop()
     }
 
+
     StackView
     {
         id: stackView
-        initialItem:generatorComponent
+        initialItem:codeListComponent
         anchors.fill: parent
     }
 
-    Component {
+    Components.CodeList {
+        id: codeListComponent
+    }
+
+    Components.Generator {
         id: generatorComponent
-        Components.Generator {
-            id: generator
-            StackView.onActivated:  syncSettings()
-        }
     }
-    Component {
+    Components.AppSettings {
         id: settingsPanelComponent
-        Components.AppSettings {
-            id: settingsPanel
 
-        }
     }
-    Component {
+    Components.Licenses {
         id: licensesPageComponent
-        Components.Licenses {
-            id: licensesPage
-
-        }
     }
     Components.AppDrawer {
         id: applicationDrawer

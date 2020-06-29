@@ -34,6 +34,7 @@ INCLUDEPATH =+ modules/QR-Code-generator/cpp
 SOURCES += \
         src/licensesbackend.cpp \
         src/main.cpp \
+        src/previouscodesmodel.cpp \
         src/qrbackend.cpp \
         modules/QR-Code-generator/cpp/QrCode.cpp \
         src/qrecodeutils.cpp \
@@ -48,12 +49,20 @@ TRANSLATIONS += \
 
 HEADERS += \
     src/licensesbackend.h \
+    src/previouscodesmodel.h \
     src/qrbackend.h \
     modules/QR-Code-generator/cpp/QrCode.hpp \
     src/qrecodeutils.h \
     src/saverbackend.h
 
 DISTFILES += \
+    android/AndroidManifest.xml \
+    android/build.gradle \
+    android/gradle/wrapper/gradle-wrapper.jar \
+    android/gradle/wrapper/gradle-wrapper.properties \
+    android/gradlew \
+    android/gradlew.bat \
+    android/res/values/libs.xml \
     modules/QR-Code-generator/Readme.markdown \
     android/AndroidManifest.xml \
     android/build.gradle \

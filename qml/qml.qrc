@@ -7,5 +7,7 @@
         <file>Components/DrawerItem.qml</file>
         <file>Components/Licenses.qml</file>
         <file>Components/Definitions.qml</file>
+        <file>Components/PreviousCodes.qml</file>
+        <file>Components/CodeList.qml</file>
     </qresource>
 </RCC>

@@ -6,7 +6,6 @@ import QtQuick.Controls.Material 2.12
 
 Drawer {
     id: mainDrawer
-    width: Math.min(400,parent.width*0.8)
     height: parent.height
     edge: Qt.LeftEdge
     //Material.foreground: "white"
