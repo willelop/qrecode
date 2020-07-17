@@ -3,6 +3,8 @@ import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.3
 import qrecode.previous 1.0
 import QtQuick.Controls.Material 2.12
+import Definitions 1.0
+
 
 Component {
 
@@ -14,9 +16,18 @@ Page {
     signal loadCode(var text,var image)
     title: "Recent QR Codes"
 
-    Component.onCompleted:  loadCode.connect(function(text,image){
+    Component.onCompleted: {
+        loadCode.connect(function(text,image){
         stackView.push(generatorComponent,{state:"view_state",viewCodeText: text, viewCodeSrc: image});
+
     })
+
+    }
+    StackView.onActivated:
+    {
+        console.log("Activating")
+        previousCodesView.forceLayout()
+    }
 
 
     header: ToolBar {
@@ -35,7 +46,7 @@ Page {
             }
             Label {
                 text: page.title
-                font.pointSize: 13
+                font.pixelSize: Definitions.titleFontSize;
                 horizontalAlignment: Text.AlignHCenter
             }
         }
@@ -46,6 +57,7 @@ Page {
 
 
         PreviousCodes{
+            id: previousCodesView
             onLoadPreviousCode:  {
                 loadCode(codeText,codeImage)
             }
@@ -59,8 +71,8 @@ Page {
     RoundButton {
         x: 0
         y: 0
-        width: 80
-        height: 80
+        width: Definitions.roundButtonSize;
+        height: Definitions.roundButtonSize;
         text: qsTr("+")
         display: AbstractButton.TextOnly
         font.pointSize: 30

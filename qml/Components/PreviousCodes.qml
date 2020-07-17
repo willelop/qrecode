@@ -10,6 +10,7 @@ ListView
     rightMargin: listMargin
     topMargin: listMargin
     bottomMargin: listMargin
+
     Component {
         id: delegateComp
         ItemDelegate  {

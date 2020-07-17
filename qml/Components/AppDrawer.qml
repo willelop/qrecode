@@ -20,9 +20,9 @@ Drawer {
                 Layout.fillWidth: true
                 text: Definitions.appTitle
                 font.weight: Font.Bold
-                Layout.leftMargin: 15
+                Layout.leftMargin: 20
+                Layout.rightMargin: Layout.leftMargin
                 font.bold: false
-                font.pointSize: 13
                 horizontalAlignment: Text.AlignLeft
             }
             ToolButton {
@@ -46,8 +46,8 @@ Drawer {
 
             delegate: DrawerItem {
                 model: listView.model
-                width: parent.width
-
+                anchors.left: parent.left
+                anchors.right: parent.right
             }
         }
     }

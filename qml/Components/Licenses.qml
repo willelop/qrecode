@@ -24,7 +24,7 @@ Component {
             Layout.fillWidth: true
             wrapMode: Label.WordWrap
             bottomPadding: 20
-            font.pointSize: 10
+            //font.pointSize: 10
             color: Material.foreground
         }
     }

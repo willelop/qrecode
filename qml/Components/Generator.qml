@@ -55,7 +55,6 @@ Component {
 
         header: ToolBar {
             //Material.elevation: 0
-
             RowLayout {
                 id: rowLayout
                 anchors.fill: parent
@@ -70,7 +69,7 @@ Component {
                 Label {
                     id: titleLabel
                     text: qsTr("Create QR Code")
-                    font.pointSize: 13
+                    font.pixelSize: Definitions.titleFontSize;
                     horizontalAlignment: Text.AlignHCenter
                 }
             }

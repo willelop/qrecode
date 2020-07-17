@@ -47,18 +47,22 @@ QHash<int, QByteArray> PreviousCodesModel::roleNames() const
 
 void PreviousCodesModel::saveData(QString text, QString src)
 {
+    beginResetModel();
     qDebug() << "Saving" << text << src;
 
     QVariantMap unit;
     unit[roleNames().value(TextRole)] = text;
     unit[roleNames().value(ImageSrcRole)] = src;
     unit[roleNames().value(TimestampRole)] = QDateTime::currentDateTime();
-
+    emit beginInsertRows(this->index(0),0,0);
     previousCodesData.push_front(unit);
+    emit endInsertRows();
+
     if(previousCodesData.count() > 10)
     {
         previousCodesData.pop_back();
     }
     this->settings->setValue("previousCodes",previousCodesData);
     emit dataChanged(createIndex(0,0),createIndex(this->previousCodesData.count()-1,0),roleNames().keys().toVector());
+    endResetModel();
 }

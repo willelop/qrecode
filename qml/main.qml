@@ -88,6 +88,14 @@ ApplicationWindow {
         id: applicationDrawer
     }
 
+    Keys.onReleased: {
+        if (event.key === Qt.Key_Back) {
+            console.log("Back button captured")
+            closeCurrent.trigger()
+            event.accepted = true
+        }
+    }
+
 }
 
 
